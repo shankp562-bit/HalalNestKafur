@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nisab Tracker | HalalNest</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 min-h-screen">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="/assets/logo.svg" alt="HalalNest Logo" class="h-10">
+                <span class="text-xl font-bold text-primary">HalalNest</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-primary transition">Home</a>
+                <a href="zakat.html" class="hover:text-primary transition">Zakat</a>
+                <a href="faraid.html" class="hover:text-primary transition">Faraid</a>
+                <a href="nisab.html" class="text-primary font-medium">Nisab</a>
+                <a href="giving.html" class="hover:text-primary transition">Giving</a>
+                <a href="concepts.html" class="hover:text-primary transition">Islamic Concepts</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button id="language-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <span class="font-arabic">العربية</span>
+                </button>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <i data-feather="moon" class="hidden dark:block"></i>
+                    <i data-feather="sun" class="dark:hidden"></i>
+                </button>
+                <button id="auth-button" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+                    Sign In
+                </button>
+                <button id="mobile-menu-button" class="md:hidden p-2">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Nisab Tracker Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold mb-2">Nisab Tracker</h1>
+                <p class="text-gray-600 dark:text-gray-300">Track current Nisab values based on live gold and silver prices</p>
+            </div>
+            
+            <!-- Nisab Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Gold Nisab -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
+                    <div class="bg-accent h-2"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-accent bg-opacity-10 p-3 rounded-lg">
+                                <i data-feather="award" class="text-accent"></i>
+                            </div>
+                            <h2 class="text-xl font-semibold ml-4">Gold Nisab</h2>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <p class="text-gray-500 dark:text-gray-400">Current gold price:</p>
+                            <p class="text-2xl font-bold" id="gold-price">$62.38/gram</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <p class="text-gray-500 dark:text-gray-400">Nisab threshold (87.48g):</p>
+                            <p class="text-2xl font-bold" id="gold-nisab">$4,320.50</p>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                            <i data-feather="clock" class="mr-2 w-4 h-4"></i>
+                            <span>Updated: <span id="gold-update-time">Just now</span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Silver Nisab -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-secondary h-2"></div>
+                    <div class="p-6
+</body>
+</html>
