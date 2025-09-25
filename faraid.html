@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faraid Calculator | HalalNest</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 min-h-screen">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="/assets/logo.svg" alt="HalalNest Logo" class="h-10">
+                <span class="text-xl font-bold text-primary">HalalNest</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-primary transition">Home</a>
+                <a href="zakat.html" class="hover:text-primary transition">Zakat</a>
+                <a href="faraid.html" class="text-primary font-medium">Faraid</a>
+                <a href="nisab.html" class="hover:text-primary transition">Nisab</a>
+                <a href="giving.html" class="hover:text-primary transition">Giving</a>
+                <a href="concepts.html" class="hover:text-primary transition">Islamic Concepts</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button id="language-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <span class="font-arabic">العربية</span>
+                </button>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <i data-feather="moon" class="hidden dark:block"></i>
+                    <i data-feather="sun" class="dark:hidden"></i>
+                </button>
+                <button id="auth-button" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+                    Sign In
+                </button>
+                <button id="mobile-menu-button" class="md:hidden p-2">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Faraid Calculator Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold mb-2">Faraid Inheritance Calculator</h1>
+                <p class="text-gray-600 dark:text-gray-300">Distribute inheritance according to Islamic law with our guided calculator</p>
+            </div>
+            
+            <!-- Calculator -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mb-8">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold mb-6">Estate Details</h2>
+                    
+                    <!-- Total Estate Value -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2">Total Estate Value</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">$</span>
+                            <input type="number" class="w-full pl-8 pr-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900" placeholder="0.00">
+                        </div>
+                    </div>
+                    
+                    <!-- Funeral Expenses and Debts -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 dark:text-gray-300 mb-2">Funeral Expenses and Debts</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">$</span>
+                            <input type="number" class="w-full pl-8 pr-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900" placeholder="0.00">
+                        </div>
+                    </div>
+                    
+                    <!-- Heirs Section -->
+                    <div class="mb-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-semibold">Heirs</h3>
+                            <button class="text-primary hover:underline flex items-center">
+                                <i data-feather="plus" class="mr-1 w-4 h-4"></i>
+                                Add Heir
+                            </button>
+                        </div>
+                        
+                        <!-- Heir Cards -->
+                        <div class="space-y-4">
+                            <!-- Heir 1 -->
+                            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="font-medium">Spouse</h4>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">Fixed share: 1/4</p>
+                                    </div>
+                                    <button class="text-red-500 hover:text-red-700">
+                                        <i data-feather="trash-2" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Heir 2 -->
+                            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="font-medium">Son</h4>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">Residuary</p>
+                                    </div>
+                                    <button class="text-red-500 hover:text-red-700">
+                                        <i data-feather="trash-2" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Heir 3 -->
+                            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="font-medium">Daughter</h4>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">Residuary (1/2 of son's share)</p>
+                                    </div>
+                                    <button class="text-red-500 hover:text-red-700">
+                                        <i data-feather="trash-2" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-primary text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">Calculate Distribution</button>
+                </div>
+            </div>
+            
+            <!-- Sample Result (hidden by default) -->
+            <div id="faraid-results" class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mb-8 hidden">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold mb-6">Inheritance Distribution</h2>
+                    
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span>Total Estate:</span>
+                            <span class="font-medium">$100,000.00</span>
+                        </div>
+                        <div class="flex justify-between mb-2">
+                            <span>After Expenses/Debts:</span>
+                            <span class="font-medium">$95,000.00</span>
+                        </div>
+                        <div class="border-t border-gray-200 dark:border-gray-700 my-3"></div>
+                        <div class="flex justify-between mb-2">
+                            <span>Total Distributed:</span>
+                            <span class="font-medium">$95,000.00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="font-semibold mb-3">Heirs' Shares</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span>Spouse (1/4 fixed share):</span>
+                                <span class="font-medium">$23,750.00 (25%)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Son (Residuary):</span>
+                                <span class="font-medium">$47,500.00 (50%)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Daughter (Residuary):</span>
+                                <span class="font-medium">$23,750.00 (25%)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row justify-between space-y-3 sm:space-y-0 sm:space-x-4">
+                        <button class="bg-white dark:bg-gray-900 border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition">
+                            <i data-feather="download" class="inline mr-2 w-4 h-4"></i>
+                            Download PDF
+                        </button>
+                        <button class="bg-white dark:bg-gray-900 border border-primary text-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition">
+                            <i data-feather="copy" class="inline mr-2 w-4 h-4"></i>
+                            Copy as JSON
+                        </button>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+                            <i data-feather="save" class="inline mr-2 w-4 h-4"></i>
+                            Save to Account
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Important Notes -->
+            <div class="bg-yellow-50 dark:bg-yellow-900 dark:bg-opacity-20 rounded-lg border border-yellow-200 dark:border-yellow-800 p-4">
+                <div class="flex">
+                    <i data-feather="alert-circle" class="text-yellow-500 mr-3"></i>
+                    <div>
+                        <h3 class="font-semibold text-yellow-700 dark:text-yellow-300">Important Notes</h3>
+                        <ul class="list-disc pl-5 mt-2 text-yellow-700 dark:text-yellow-300 space-y-1">
+                            <li>Funeral expenses and debts must be paid before distribution</li>
+                            <li>Any bequests (wasiyyah) cannot exceed 1/3 of the estate after expenses</li>
+                            <li>In some cases, Awl (proportionate reduction) or Radd (return to heirs) may apply</li>
+                            <li>This calculator follows standard Sunni inheritance laws</li>
+                            <li>Consult a qualified Islamic scholar for complex cases</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-gray-100 dark:bg-gray-900 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="/assets/logo.svg" alt="HalalNest Logo" class="h-8">
+                        <span class="text-xl font-bold text-primary">HalalNest</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">Your trusted Islamic wealth management platform.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tools</h3>
+                    <ul class="space-y-2">
+                        <li><a href="zakat.html" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Zakat Calculator</a></li>
+                        <li><a href="faraid.html" class="text-primary font-medium">Faraid Calculator</a></li>
+                        <li><a href="nisab.html" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Nisab Tracker</a></li>
+                        <li><a href="giving.html" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Giving Platform</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="concepts.html" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Islamic Concepts</a></li>
+                        <li><a href="#methodology" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Methodology</a></li>
+                        <li><a href="#faq" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">FAQ</a></li>
+                        <li><a href="#blog" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary transition">
+                            <i data-feather="youtube"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mt-4">support@halalnest.com</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 dark:text-gray-400 text-sm">© 2023 HalalNest. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#privacy" class="text-gray-500 dark:text-gray-400 text-sm hover:text-primary transition">Privacy Policy</a>
+                    <a href="#terms" class="text-gray-500 dark:text-gray-400 text-sm hover:text-primary transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS animation
+        AOS.init();
+        
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+            feather.replace();
+        });
+        
+        // Show results when Calculate button is clicked
+        document.querySelector('.bg-primary').addEventListener('click', function() {
+            document.getElementById('faraid-results').classList.remove('hidden');
+            // Scroll to results
+            document.getElementById('faraid-results').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
