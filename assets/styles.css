@@ -1,0 +1,190 @@
+/* Reworked HalalNest styles — modern green theme, improved components, placeholders.
+   - Responsive nav / mobile menu
+   - Hero with Islamic placeholder image
+   - Cards, buttons, inputs, forms
+   - Utility classes and dark-mode support
+   - Placeholder image helpers using Unsplash (Islamic / mosque keywords)
+*/
+
+:root{
+  --primary: #1f8a51; /* main green */
+  --primary-600:#158241;
+  --accent: #d4af37;
+  --secondary:#0ea5e9;
+  --bg:#f6fbf6;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --glass: rgba(255,255,255,0.6);
+  --dark-bg:#0b1220;
+  --shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+  --radius: 14px;
+  --max-width: 1200px;
+  --container-padding: 1rem;
+  --transition: 180ms cubic-bezier(.2,.9,.2,1);
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Reset + base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  background:var(--bg);
+  color:#0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  -webkit-font-feature-settings: "kern";
+}
+
+/* Container */
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 var(--container-padding);
+}
+
+/* Navigation */
+nav{
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.78));
+  border-bottom: 1px solid rgba(15,23,42,0.04);
+  position:sticky;
+  top:0;
+  z-index:60;
+}
+nav .container{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.6rem 0}
+nav img{height:44px;object-fit:contain}
+nav .brand{display:flex;align-items:center;gap:.6rem}
+nav .brand .title{font-weight:700;color:var(--primary);font-size:1.15rem}
+nav .nav-links{display:flex;gap:1.25rem;align-items:center}
+nav a{color:inherit;text-decoration:none;transition:all var(--transition)}
+nav a:hover{color:var(--primary-600)}
+nav .actions{display:flex;gap:.6rem;align-items:center}
+
+/* Mobile menu */
+#mobile-menu{display:none}
+@media (max-width:900px){
+  .nav-links{display:none}
+  #mobile-menu{display:block}
+  #mobile-menu.open{display:block}
+  .mobile-nav{display:flex;flex-direction:column;gap:.6rem;padding:.6rem}
+}
+
+/* Hero */
+.hero{
+  position:relative;
+  padding:4rem 1rem;
+  border-radius:var(--radius);
+  margin:1.25rem 0;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image: linear-gradient(135deg, rgba(10,70,40,0.55), rgba(6,20,25,0.25));
+  z-index:1;
+}
+.hero-inner{position:relative;z-index:2;max-width:1050px;margin:0 auto;text-align:center;color:#fff;padding:3rem 2rem;border-radius:12px}
+.hero h1{font-size:2.4rem;margin:0 0 .6rem;line-height:1.05}
+.hero p{opacity:.95;margin-bottom:1.2rem}
+.hero .cta{display:inline-flex;gap:0.8rem;align-items:center}
+.hero .hero-media{
+  position:absolute;inset:0;background-size:cover;background-position:center;filter:contrast(.95) saturate(1.05);z-index:0;
+}
+
+/* Default hero image (Islamic-themed Unsplash) */
+.hero-media{background-image:url("https://images.unsplash.com/photo-1505765055213-6b1df9d0f5f6?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2a8a5c8c9e9d5b2d1b7a7e5b6f9f9a1a");opacity:1}
+
+/* Cards */
+.card, .bg-white { background:var(--card); border-radius:12px; box-shadow:var(--shadow); border:1px solid rgba(15,23,42,0.04) }
+.p-6{padding:1.25rem}
+.rounded-xl{border-radius:12px}
+
+/* Grid helpers */
+.grid{display:grid;gap:1rem}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:900px){ .grid.cols-3, .grid.cols-2{grid-template-columns:repeat(1,1fr)} }
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;border-radius:10px;padding:.6rem 1rem;font-weight:600;border:0;cursor:pointer;transition:all var(--transition);
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+}
+.btn-primary{background:linear-gradient(90deg,var(--primary),var(--primary-600));color:#fff}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(31,138,81,0.18)}
+.btn-accent{background:var(--accent);color:#111}
+.btn-ghost{background:transparent;border:1px solid rgba(15,23,42,0.06);color:inherit}
+
+/* Form controls */
+input[type="number"], input[type="text"], select, textarea {
+  width:100%;
+  padding:.6rem .75rem;
+  border-radius:10px;
+  border:1px solid rgba(15,23,42,0.08);
+  background:linear-gradient(180deg,#fff,#fbfbfb);
+  transition: box-shadow var(--transition), border-color var(--transition);
+  font-size:.95rem;
+  color:inherit;
+}
+input:focus, select:focus, textarea:focus { outline:none; box-shadow:0 6px 20px rgba(31,138,81,0.08); border-color:var(--primary-600) }
+
+/* Smaller utilities */
+.kv{display:flex;justify-content:space-between;align-items:center}
+.small{font-size:.95rem;color:var(--muted)}
+.text-muted{color:var(--muted)}
+
+/* Footer */
+footer{background:#f1f6f1;padding:3rem 1rem;border-top:1px solid rgba(15,23,42,0.04);color:var(--muted)}
+footer a{color:inherit}
+
+/* Step indicator used in zakath.html */
+.step-indicator{display:flex;gap:.75rem;align-items:center}
+.step-indicator .step{width:46px;height:46px;border-radius:999px;background:#f3faf3;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--primary)}
+.step-indicator .step.inactive{background:rgba(15,23,42,0.04);color:var(--muted)}
+
+/* Cards inside calculators: compact spacing */
+.calculator .p-6{padding:1rem}
+.calculator .mb-6{margin-bottom:1rem}
+
+/* Placeholder image utilities for posts/cards */
+.placeholder-img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:8px;
+  display:block;
+  background-size:cover;
+  background-position:center;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.06);
+}
+
+/* Helper class to use Unsplash Islamic images */
+.placeholder-islamic { background-image: url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1600&auto=format&fit=crop&s=6e33b4cb3d8d2d3a8a1a0c9b3f8e8f6f"); }
+
+/* Smaller components */
+.badge{display:inline-block;padding:.25rem .6rem;border-radius:999px;background:rgba(31,138,81,0.12);color:var(--primary);font-weight:600;font-size:.85rem}
+
+/* Dark mode support (keeps existing .dark handling) */
+html.dark body{
+  background:var(--dark-bg);
+  color:#e6eef3;
+}
+html.dark nav{background:rgba(2,6,23,0.65);border-bottom:1px solid rgba(255,255,255,0.03)}
+html.dark .card, html.dark .bg-white{ background:#071019; color:#e6eef3; border:1px solid rgba(255,255,255,0.03)}
+html.dark .hero-inner{background:linear-gradient(90deg, rgba(3, 12, 7, 0.36), rgba(0,0,0,0.28))}
+
+/* Accessibility enhancements */
+a:focus, button:focus, input:focus{ outline: 3px solid rgba(31,138,81,0.12); outline-offset:2px }
+
+/* Small responsive tweaks */
+@media (max-width:640px){
+  .hero h1{font-size:1.6rem}
+  .hero-inner{padding:2rem 1rem}
+  nav img{height:36px}
+}
+
+/* END of stylesheet */
